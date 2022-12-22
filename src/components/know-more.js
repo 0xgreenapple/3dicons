@@ -1,7 +1,6 @@
 // about
 // 25 Aug, 21
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 
 const KnowMore = () => {

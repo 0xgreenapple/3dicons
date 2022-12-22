@@ -2,7 +2,6 @@
 // announce
 // 24 Aug, 21
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 
 const Annouce = () => {

@@ -1,6 +1,4 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { useState, useEffect, useRef, useReducer } from "react";
 
 const Layout = ({ location, title, children, bgclass }) => {
   const rootPath = `${__PATH_PREFIX__}/`
