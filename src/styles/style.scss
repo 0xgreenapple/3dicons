@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-
 // Variables
 
 $g-sky: #4AB1F1;
@@ -1344,31 +1343,41 @@ main{
   height: 100px;
 }
 .main_Wrapper{
-  -webkit-transition: all 1s cubic-bezier(0.08, 0.54, 0.29, 0.85);
-    transition: all 1s cubic-bezier(0.08, 0.54, 0.29, 0.85);
+  @media screen and (max-width:900px) {
+    height: 100%;
+  }
   .view_wrapper{
-    -webkit-transition: all 1s cubic-bezier(0.08, 0.54, 0.29, 0.85);
-      transition: all 1s cubic-bezier(0.08, 0.54, 0.29, 0.85);
     display: flex;
-    margin: 50px;
+    margin: 100px 60px;
     justify-content: left;
     flex-direction: row;
+    @media screen and (max-width: 900px) {
+    flex-direction: column;
+    }
     .left_view{
       .img_wrap{
-        margin: 10px;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        @media screen and (max-width: 900px) {
+            flex-direction: row;
+          }
         a{
-          -webkit-transition: all 1s cubic-bezier(0.08, 0.54, 0.29, 0.85);
-            transition: all 1s cubic-bezier(0.08, 0.54, 0.29, 0.85);
           // border: 2px solid rgb(156, 150, 150);
-          margin-bottom: 10px;
-          border-radius: 10px;
-          background: $light-grey;
           img {
             max-height: 100px;
             cursor: pointer;
+            background: $light-grey;
+            border-radius: 10px;
+            margin-bottom: 20px;
+
+            
+          }
+          &.clay {
+            img{
+            margin-bottom: 0;
+            }
           }
         }
         
@@ -1378,71 +1387,155 @@ main{
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: 30px;
+      border-radius: 30px;
+      background-color: $light-grey;
       .main_view{
-        height: 100%;
-        border-radius: 30px;
-        margin: 30px;
-        border: 2px solid rgb(146, 146, 146);
+        display: flex;
         justify-content: center;
-        
+        align-items: center;
+        margin:0 35px;
+        @media screen and (max-width: 900px) {
+            order: -1;
+          }
       }
     }
-    .meta_Wrap{
+    .btn_Wrap{
       display: flex;
       justify-content: center;
-      .downloader{
-        margin-left: 100px;
+      margin-left: 80px;
+      .meta_wrapper{
         display: flex;
+        justify-content: center;
         flex-direction: column;
-        justify-content: space-around;
-
-        h1{
-          text-align: center;
-          font-size: 100px;
-          font-weight: 900;
-          margin: 30px;
+        align-items: center;
+        padding: 20px;
+        .logo_Wrap{
+          display: block;
+          align-items: center;
+          margin-bottom: 30px;
+          .imglogo{
+            height: 35px;
+          }
         }
-        .btns{
+        .info_wrapper{
+          width: 100%;
+          background: $dark-bg;
           display: flex;
           flex-direction: column;
-        a {
-          text-align: center;
-            cursor: pointer;
-            color: white;
-            background: $g-pink;
-            border-radius: 10px;
-            font-size: 30px;
-            padding: 20px;
-            margin-bottom: 5px;
-
-            &:hover {
-              box-shadow: 4px 4px 0 black;
+          justify-content: center;
+          color: $light-grey;
+          border-radius: 15px;
+          margin-bottom: 15px;
+          .meta{
+            margin: 20px;
+            h3 {
+              color: $white;
+                font-size: 35px;
+                font-weight: bold;
+                margin-bottom: 10px;
+              }
+            p{
+              font-size: 15px;
+              line-height: 20px;
+              span{
+                font-weight: 600;
+              }
             }
+          }
         }
-       
+        .cpybtn_wrap{
+          display: flex;
+          width: 100%;
+          align-items: center;
+          margin-bottom: 10px;
+          .cpy_btn{
+            cursor: pointer;
+            padding: 5px 4px;
+            border: 2px solid black;
+            border-radius: 15px;
+            &:hover{
+              background: black;
+              color: white;
+            }
+          }
+        }
+        .angle_cntrl{
+          display: flex;
+          a{
+            cursor: pointer;
+            padding: 15px;
+            border: 2px solid black;
+            background: $light-grey;
+            &.iso{
+              border-radius: 15px 0 0 15px;
+            }
+            &.daynmic{
+              border-width: 2px 0 2px 0;
+              color: white;
+              background-color: $dark-bg;
+            }
+            &.front{
+              border-radius: 0 15px 15px 0;
+            }
+          }
+        }
+        .btns{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          margin-top: 15px;
+          a{
+            cursor: pointer;
+            padding: 15px;
+            font-weight: 600;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            background: $black;
+            color: white;
+          }
         }
       }
     }
   }
-
 }
 .no-scroll {
+  
   overflow: hidden;
 }
 .modal{
+  background-image: url(/3d-gradient.svg);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 500px auto;
   display: flex;
   justify-content: center;
   position: fixed;
-  background: white;
+  background-color: white;
   align-items: center;
   transform: translate(-50%, -50%);
   top:50%;
   left:50%;
-  border:2px solid black;
   z-index: 99999;
-  border-color: black;
-  
+  outline: none;  
+  border-radius: 15px;
+    @media screen and ( max-width=768px) {
+      height: 95%;
+    }
 }
 .my-content{
   border: none;
+}
+.modal-overlay{
+    width: 100%;
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.ReactModal__Overlay--after-open{
+  @media screen and (max-width=768px) {
+      height: 95%;
+    }
 }

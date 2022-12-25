@@ -9,9 +9,7 @@ const nextConfig = {
         pathname: "/v1/**",
       },
     ],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    deviceSizes: [640, 750, 828, 1080],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 60
   },
 
   experimental: {

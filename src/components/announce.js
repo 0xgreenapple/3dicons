@@ -12,7 +12,6 @@ const Annouce = () => {
           </div>
         </div>
       </section>
-
     )
 }
 
