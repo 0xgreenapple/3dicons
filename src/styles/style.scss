@@ -1343,25 +1343,36 @@ main{
   height: 100px;
 }
 .main_Wrapper{
-  @media screen and (max-width:900px) {
+  @media (max-width:$tablet){
     height: 100%;
+    width: 100%;
   }
   .view_wrapper{
     display: flex;
     margin: 100px 60px;
     justify-content: left;
     flex-direction: row;
-    @media screen and (max-width: 900px) {
-    flex-direction: column;
+    @media  (max-width: $tablet){
+      flex-direction: column;
+      max-width: 100%;
+      margin: 20px 30px;
     }
-    .left_view{
+    .icon_view{
+      display: flex;
+      flex-direction: row;
+      @media (max-width: $tablet) {
+            flex-direction: column;
+      }
       .img_wrap{
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        @media screen and (max-width: 900px) {
+        @media (max-width: $tablet){
             flex-direction: row;
+            justify-content: space-between;
+            max-width: 100%;
+            margin-bottom: 10px;
           }
         a{
           // border: 2px solid rgb(156, 150, 150);
@@ -1371,9 +1382,17 @@ main{
             background: $light-grey;
             border-radius: 10px;
             margin-bottom: 20px;
-
-            
-          }
+             @media (max-width: $tablet) {
+                margin-bottom: 0;
+                max-height: 65px;
+                width: auto;
+                &.clay{
+                  img{
+                    margin-left: 0;
+                  }
+                }
+              }
+            }
           &.clay {
             img{
             margin-bottom: 0;
@@ -1382,22 +1401,120 @@ main{
         }
         
       }
-    }
-    .right_view{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 30px;
-      border-radius: 30px;
-      background-color: $light-grey;
-      .main_view{
+      .big_view{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin:0 35px;
-        @media screen and (max-width: 900px) {
-            order: -1;
+        background: $light-grey;
+        border-radius: 15px;
+        margin-left: 30px;
+        @media (max-width: $tablet) {
+            margin-left: 0;
           }
+        .img_Wrapper{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 30px;
+        }
+      }
+    }
+    .editor_Wrap{
+      display: flex;
+      flex-direction: column;
+      margin-left: 80px;
+      .main_wrap{
+        height: 100%;
+        display: flex;
+        margin: 30px;
+        justify-content: space-between;
+        flex-direction: column;
+        .logo_Wrap{
+          img{
+            height: 37px;
+          }
+        }
+        .cpybtn_wrap {
+          display: flex;
+          align-items: center;
+          .cpy_btn {
+            cursor: pointer;
+            padding: 5px 4px;
+            border: 2px solid black;
+            border-radius: 13px;
+            margin-bottom: 10px;
+            &:hover {
+              background: black;
+              color: white;
+            }
+          }
+        }
+        .angle_cntrl {
+          display: flex;
+          a {
+            cursor: pointer;
+            padding: 15px;
+            border: 2px solid black;
+            background: $light-grey;
+
+            &.iso {
+              border-radius: 15px 0 0 15px;
+            }
+
+            &.daynmic {
+              border-width: 2px 0 2px 0;
+              color: white;
+              background-color: $dark-bg;
+            }
+
+            &.front {
+              border-radius: 0 15px 15px 0;
+            }
+          }
+        }
+        .btns{
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          .btn{
+            display: flex;
+            background: $black;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 10px;
+            margin-top: 15px;
+            color: white;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-weight: 600;
+          }
+        }
+        .info_wrapper {
+          background: $dark-bg;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-bottom: 15px;
+          color: $light-grey;
+          border-radius: 15px;
+          .meta {
+            padding: 10px;
+            h3 {
+              color: $white;
+              font-size: 35px;
+              font-weight: bold;
+            }
+            p {
+              font-size: 15px;
+              line-height: 20px;
+              span {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+
       }
     }
     .btn_Wrap{
@@ -1418,68 +1535,9 @@ main{
             height: 35px;
           }
         }
-        .info_wrapper{
-          width: 100%;
-          background: $dark-bg;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          color: $light-grey;
-          border-radius: 15px;
-          margin-bottom: 15px;
-          .meta{
-            margin: 20px;
-            h3 {
-              color: $white;
-                font-size: 35px;
-                font-weight: bold;
-                margin-bottom: 10px;
-              }
-            p{
-              font-size: 15px;
-              line-height: 20px;
-              span{
-                font-weight: 600;
-              }
-            }
-          }
-        }
-        .cpybtn_wrap{
-          display: flex;
-          width: 100%;
-          align-items: center;
-          margin-bottom: 10px;
-          .cpy_btn{
-            cursor: pointer;
-            padding: 5px 4px;
-            border: 2px solid black;
-            border-radius: 15px;
-            &:hover{
-              background: black;
-              color: white;
-            }
-          }
-        }
-        .angle_cntrl{
-          display: flex;
-          a{
-            cursor: pointer;
-            padding: 15px;
-            border: 2px solid black;
-            background: $light-grey;
-            &.iso{
-              border-radius: 15px 0 0 15px;
-            }
-            &.daynmic{
-              border-width: 2px 0 2px 0;
-              color: white;
-              background-color: $dark-bg;
-            }
-            &.front{
-              border-radius: 0 15px 15px 0;
-            }
-          }
-        }
+        
+        
+       
         .btns{
           width: 100%;
           display: flex;
@@ -1495,7 +1553,13 @@ main{
             margin-bottom: 10px;
             background: $black;
             color: white;
+            &.close{
+              background: none;
+              color: $black;
+              border: 2px solid black;
+            }
           }
+          
         }
       }
     }
@@ -1521,9 +1585,10 @@ main{
   z-index: 99999;
   outline: none;  
   border-radius: 15px;
-    @media screen and ( max-width=768px) {
+  @media (max-width: $tablet) {
       height: 95%;
-    }
+      width: 95%;
+  }
 }
 .my-content{
   border: none;
@@ -1533,9 +1598,4 @@ main{
     position: fixed;
     inset: 0px;
     background-color: rgba(0, 0, 0, 0.75);
-}
-.ReactModal__Overlay--after-open{
-  @media screen and (max-width=768px) {
-      height: 95%;
-    }
 }

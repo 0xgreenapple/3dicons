@@ -9,16 +9,11 @@ const nextConfig = {
         pathname: "/v1/**",
       },
     ],
-    minimumCacheTTL: 60
+    minimumCacheTTL: 60,
   },
 
   experimental: {
-    appDir: true,
-  },
-  webpack5: true,
-  webpack: config => {
-    config.resolve.fallback = { fs: false }
-    return config
+    appDir: false,
   },
 }
 
